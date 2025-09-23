@@ -169,6 +169,20 @@ vim.o.confirm = true
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- Scroll so fast
+-- Shift + [hjkl] moves 10 chars
+vim.keymap.set('n', 'H', '10h', { noremap = true })
+vim.keymap.set('n', 'J', '10j', { noremap = true })
+vim.keymap.set('n', 'K', '10k', { noremap = true })
+vim.keymap.set('n', 'L', '10l', { noremap = true })
+
+-- Shift + C concatenates lines (since Shift+J is overridden)
+vim.keymap.set('n', 'C', 'J', { noremap = true })
+
+-- Typing "jk" quickly returns to normal mode
+vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
+vim.keymap.set('t', 'jk', [[<C-\><C-n>]], { noremap = true })
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
