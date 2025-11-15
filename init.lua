@@ -166,6 +166,9 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- add line at 81 chars for cleanliness
+vim.opt.colorcolumn = '81'
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -698,7 +701,7 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
-
+        hls = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -904,6 +907,9 @@ require('lazy').setup({
         styles = {
           comments = { italic = false }, -- Disable italics in comments
         },
+        on_colors = function(colors)
+          colors.comment = colors.terminal.white_bright
+        end,
       }
 
       -- Load the colorscheme here.
